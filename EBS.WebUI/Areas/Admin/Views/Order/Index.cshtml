@@ -1,0 +1,74 @@
+﻿@* @model IEnumerable<EBS.WebUI.DTOs.OrderDtos.ResultOrderDto> *@
+@model List<ResultOrderDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Commande</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<p><a asp-action="CreateOrder">Create New</a></p>
+
+
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                                <th>Produits</th>
+                                <th>Employee</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Product.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Employee.FullName)</td>
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green"><span class="badge bg-success">Activer</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                    }
+                                    <td>
+                                        <a asp-action="UpdateOrder" asp-controller="Order" asp-area="Admin" asp-route-id="@item.Id">Edite</a>
+                                        <a asp-action="Details" asp-controller="Order" asp-area="Admin" asp-route-id="@item.Id">Detail</a>
+                                        <a asp-action="DeleteOder" asp-controller="Order" asp-area="Admin" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 

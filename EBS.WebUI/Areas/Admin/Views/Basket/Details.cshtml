@@ -1,0 +1,96 @@
+﻿@model ResultBasketDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">About</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">@ViewData["Title"]</a></li> 
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Information General</h5>
+                    <form>
+                       @*  
+                         <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">ID: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="@Model.Id" disabled>
+                            </div>
+                        </div> *@
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Quantite commander: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.Quantity)" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Employee: </label>
+                            <div class="col-sm-10"> 
+                                <input type="text" class="form-control" value="@ViewBag.employeeName" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Produit commander: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="@ViewBag.productName" disabled>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Status: </label>
+                            <div class="col-sm-10">
+                                @* <input type="text" class="form-control" value="@(Model.IsActived==true? "Commande Effecture":"Commande non effecture")" disabled> *@
+                                @if (Model.IsActived == true)
+                                {
+                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled"> <span class="badge bg-success"> Activer</span></label>
+                                }
+                                else
+                                {
+                                    <label class="form-check-label" for="flexSwitchCheckDisabled"> <span class="badge bg-danger">N'est pas activer</span></label>
+                                }
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Modiffier", "UpdateBasket", new { id = Model.Id }) | <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Photos</h5>
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-6 mt-6">
+                                <span>Produit</span>
+                                <img src="~/AdminTemplate/assets/img/@ViewBag.productImageUrl" class="container-fluid" style="width:80px;height:80px" />
+                            </div>
+                            <div class="col-6 mt-6">
+                                <span>Employee</span>
+                                <img src="~/AdminTemplate/assets/img/@ViewBag.employeeImageUrl" class="container-fluid" style="width:80px;height:80px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

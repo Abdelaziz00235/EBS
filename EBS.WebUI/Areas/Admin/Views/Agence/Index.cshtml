@@ -1,0 +1,78 @@
+﻿@model List<ResultAgenceDto>
+@{
+    ViewData["Title"] = "Agence";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Agence</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<p> <a asp-action="CreateAgence">Create New</a></p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>Id</th> 
+                                <th>Name </th>
+                                <th>Code </th>
+                                <th>City </th>
+                                <th>LocalAdres</th>
+                                <th>Status</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr data-index="0">
+                                    <td scope="row">
+                                        <a asp-action="EditAgence" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id">@item.Id</a>
+                                    </td>
+                                    <td style="height:20px">@item.Name</td>
+                                    <td>@item.Code</td>
+                                    <td>@item.City</td>
+                                    <td>@item.LocalAdres</td>
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green">
+                                            <span class="badge bg-success">Activer</span>
+                                            <a asp-action="AgenceChangeStautsIsFalse" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-outline-danger">Desactiver</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green">
+                                            <span class="badge bg-danger">Non activer</span>
+                                            <a asp-action="AgenceChangeStautsIsTrue" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-outline-success">Activer</a>
+                                        </td>
+                                    }
+                                    <td>
+                                        <a asp-action="UpdateAgence" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id">Modiffier</a> | 
+                                        <a asp-action="Details" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id">Detail</a> | 
+                                        <a asp-action="DeleteAgence" asp-controller="Agence" asp-area="Admin" asp-route-id="@item.Id">Supprimer</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

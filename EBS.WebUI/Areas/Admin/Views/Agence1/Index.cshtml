@@ -1,0 +1,59 @@
+﻿@* @model IEnumerable<EBS.WebUI.DTOs.AgenceDtos.ResultAgenceDto> *@
+@model List<ResultAgenceDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p><a asp-action="Create">Create New</a></p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>Name </th>
+                                <th>Code </th>
+                                <th>City </th>
+                                <th>LocalAdres</th>
+                                <th>Status</th> 
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Code</td>
+                                    <td>@item.City</td>
+                                    <td>@item.LocalAdres</td> 
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green"><span class="badge bg-success">Activer</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                    } 
+                                    <td>
+                                        @Html.ActionLink("Modiffier", "UpdateAgence", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
+                                        @Html.ActionLink("Supprimer", "Delete", new {  id=item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,79 @@
+﻿@* @model EBS.WebUI.DTOs.CategoryDtos.CreateCategoryDto *@
+@model CreateCategoryDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Employee</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<section class="content">
+    <div class="container-fluid">
+
+        <br />
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* Info Personnel *@
+            <div class="card card-default">
+                <div class="card-header">
+                    <h5 class="card-title">Info Personnel </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" /> 
+                        </div> 
+                        <div class="col-6">
+                            <label asp-for="Icon" class="control-label"></label>
+                            <input type="file" asp-for="PictureIcon" class="form-control" data-mask />
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            @* Info Description *@
+            <div class="card card-default">
+                <div class="card-header">
+                    <h5 class="card-title">Description </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea asp-for="Description" placeholder="Description de l'agence maximum 1024 caractere..." rows="4" cols="150" class="container-fluid"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                            <input asp-for="IsActived" type="checkbox" class="custom-control-input" id="customSwitch3">
+                            <label class="custom-control-label" for="customSwitch3">@Html.DisplayNameFor(model => model.IsActived)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="d-grid gap-2 mt-3">
+                            <input type="submit" value="Enregistrer" class="btn btn-outline-primary" /> <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer"> <a asp-action="Index">Liste des categories</a></div>
+            </div>
+        </form>
+    </div><!--./container-fluid -->
+</section>

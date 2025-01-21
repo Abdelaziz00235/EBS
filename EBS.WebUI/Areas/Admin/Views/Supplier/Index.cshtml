@@ -1,0 +1,74 @@
+﻿@* @model IEnumerable<EBS.WebUI.DTOs.SupplierDtos.ResultSupplierDto> *@
+@model List<ResultSupplierDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom et Prenom</th>
+                                <th>Entreprise</th>
+                                <th>Numero de Telephone</th>
+                                <th>Adresse Email</th>
+                                <th>Numero National d'Identification </th>
+                                <th>Designation</th>
+                                <th>Active</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NNI)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Designation)</td>
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green"><span class="badge bg-success">Activer</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                    }
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* 
+@Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+@Html.ActionLink("Details", "Details", new { id = item.Id }) |
+@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+ *@

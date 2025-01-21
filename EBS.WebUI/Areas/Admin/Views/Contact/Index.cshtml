@@ -1,0 +1,79 @@
+﻿@model List<ResultContactDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Contact</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<p><a asp-action="CreateContact">Create New</a></p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Map</th>
+                                <th>Adress</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Actived</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem =>item.Id)</td>    
+                                    <td>@Html.DisplayFor(modelItem =>item.Map)</td>    
+                                    <td>@Html.DisplayFor(modelItem =>item.Adress)</td>    
+                                    <td>@Html.DisplayFor(modelItem =>item.Phone)</td>    
+                                    <td>@Html.DisplayFor(modelItem =>item.Email)</td>
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green"><span class="badge bg-success">Activer</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                    }
+                                    <td>
+                                        @Html.ActionLink("Edit", "UpdateContact", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "DetailsContact", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "DeleteContact", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@* 
+
+<a asp-action="UpdateContact" asp-asp-controller="Contact" asp-asp-area="Admin" asp-route-id="@item.Id">Edite</a> |
+<a asp-action="DetailsContact" asp-asp-controller="Contact" asp-asp-area="Admin" asp-route-id="@item.Id">Details</a> |
+<a asp-action="DeleteContact" asp-asp-controller="Contact" asp-asp-area="Admin" asp-route-id="@item.Id">Delete</a>
+
+ *@

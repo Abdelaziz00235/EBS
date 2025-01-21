@@ -1,0 +1,74 @@
+﻿@model  UpdateDepartmentDto
+
+@{
+    ViewData["Title"] = "Mise a jour du department";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Departement</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">@ViewData["Title"] </h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="UpdateDepartment" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h5 class="card-title">Info Personnel </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" /> 
+                                </div>
+                                <div class="col-4">
+                                    <label asp-for="Code" class="control-label"></label>
+                                    <input asp-for="Code" class="form-control" /> 
+                                </div>
+                                <div class="col-4">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" class="form-control" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                    <input asp-for="IsActived" type="checkbox" class="custom-control-input" id="customSwitch3">
+                                    <label class="custom-control-label" for="customSwitch3">@Html.DisplayNameFor(model => model.IsActived)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="d-grid gap-2 mt-3">
+                                    <input type="submit" value="Mise a jour" class="btn btn-outline-primary" /> <br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"> <a asp-action="Index">Liste de Utilisateurs</a></div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer"></div>
+        </div><!--./card card-default -->
+    </div><!--./container-fluid -->
+</section>
+

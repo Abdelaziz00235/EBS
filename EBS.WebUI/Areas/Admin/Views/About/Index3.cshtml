@@ -1,0 +1,72 @@
+﻿@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="CreateAbout">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>description</th>
+            <th>ImageUrl1</th>
+            <th>ImageUrl2</th>
+            <th>Item1</th>
+            <th>Item2</th>
+            <th>Item3</th>
+            <th>Item4</th>
+            <th>IsActived</th>
+            <th>IsDeleted</th>
+            <th>CreatedAt</th>
+            <th>UpdatedAt</th>
+            <th>DeletedAt</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+        <tr>
+            <td>
+                @item.description
+            </td>
+            <td>
+                @item.ImageUrl1
+            </td>
+            <td>
+                @item.ImageUrl2
+            </td>
+            <td>
+                @item.Item1
+            </td>
+            <td>
+                @item.Item2
+            </td>
+            <td>
+                @item.Item3
+            </td>
+            <td>
+                @item.Item4
+            </td>
+            <td>
+                @item.IsActived
+            </td> 
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", @item.Id=item.Id) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id }) *@
+                    <a asp-action="UpdateAbout" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-primary"> <i class="ri-edit-2-line"></i> </a>
+                    <a asp-action="Details" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-primary"> <i class="bi bi-card-list"></i> </a>
+                    <a asp-action="DeleteAbout" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id" class="btn btn-primary"> <i class="ri-delete-back-2-fill"></i> </a>
+           
+           </td>
+        </tr>
+}
+    </tbody>
+</table>

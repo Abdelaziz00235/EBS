@@ -1,0 +1,60 @@
+﻿@* @model EBS.WebUI.DTOs.BannerDtos.UpdateBannerDto *@
+@model UpdateBannerDto
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Banner</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">@ViewData["Title"]</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">@ViewData["Title"] </h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="ImageUrl" class="control-label"></label>
+                            <input asp-for="ImageUrl" class="form-control" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-2">
+                            <input type="submit" value="ENREGISTRE" class="btn btn-primary" /> <br />
+                        </div>
+                        <div class="col-10">
+                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                <input asp-for="IsActived" type="checkbox" class="custom-control-input" id="customSwitch3">
+                                <label class="custom-control-label" for="customSwitch3">@Html.DisplayNameFor(model => model.IsActived)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="card-footer"> <a asp-action="Index">Back to List</a></div>
+        </div><!--./card card-default -->
+    </div><!--./container-fluid -->
+</section> 
+

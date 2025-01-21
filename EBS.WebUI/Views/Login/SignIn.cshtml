@@ -1,0 +1,61 @@
+﻿@model EmployeeLoginDto
+@{ 
+    ViewData["Title"] = "Connexion";
+    // Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/UILayout/Layout.cshtml";
+}
+ <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+            <div class="card mb-3">
+
+            <div class="card-body">
+
+                <div class="pt-4 pb-2">
+                    @* <img src="~/admintemplate/assets/img/EcobankBusinessServices.png" class="align-center"/> *@
+                <h5 class="card-title text-center pb-0 fs-4">Connexion</h5> 
+                </div>
+
+                <form method="post" class="row g-3 needs-validation" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="col-12">
+                        @* <label asp-for="Email"   class="form-label">Email</label> *@
+                        <div class="input-group has-validation">
+                        @* <span class="input-group-text" id="inputGroupPrepend">Email </span> *@
+                        <input asp-for="Email" type="text" class="form-control" placeholder="ekocauris@ecobank.com" required>
+                        <div class="invalid-feedback">Entrez votre Adresse email s'il vous plait.</div>
+                        </div>
+                    </div> 
+                    <div class="col-12 pt-2 pb-2">
+                         @* <label asp-for="Password" class="form-label">Password</label> *@
+                        <div class="input-group has-validation">
+                        @* <span class="input-group-text" id="inputGroupPrepend">Password </span> *@
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Mote de Passe" required>
+                        <div class="invalid-feedback">Entrez votre Mote de passe S'il vous plait.</div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
+                     
+                </form>
+
+            </div>
+            </div>
+
+            <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+</section>

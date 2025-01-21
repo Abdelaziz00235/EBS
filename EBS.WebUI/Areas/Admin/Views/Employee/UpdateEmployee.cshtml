@@ -1,0 +1,241 @@
+﻿@model UpdateEmployeeDto
+@{
+    ViewData["Title"] = "Mise a jour des employee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Employee</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">@ViewData["Title"] </h3>
+            </div>
+            <div class="card-body">
+               @*  <form asp-action="UpdateEmployee" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    
+                    <div class="row">
+                        <div class="col-3">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="col-3">
+                            <label asp-for="FullName" class="control-label"></label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="col-3">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-3">
+                            <label asp-for="NNI" class="control-label"></label>
+                            <input asp-for="NNI" class="form-control" />
+                            <span asp-validation-for="NNI" class="text-danger"></span>
+                        </div>
+                        <div class="col-3">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-2">
+                            <label asp-for="Designation" class="control-label"></label>
+                            <input asp-for="Designation" class="form-control" />
+                            <span asp-validation-for="Designation" class="text-danger"></span>
+                        </div>
+                        <div class="col-2">
+                            <label asp-for="Matricule" class="control-label"></label>
+                            <input asp-for="Matricule" class="form-control" />
+                            <span asp-validation-for="Matricule" class="text-danger"></span>
+                        </div>
+                        <div class="col-5">
+                            <label asp-for="AgenceId" class="control-label"></label>
+                            <select asp-items="@ViewBag.AgenceSelectItem" asp-for="AgenceId" class="form-control">
+                                <option>Emplyee</option>
+                            </select>
+                            <span asp-validation-for="AgenceId" class="text-danger"></span>
+                        </div>
+                        <div class="col-5">
+                            <label asp-for="DepartmentId" class="control-label"></label>
+                            <select asp-items="@ViewBag.DepartmentSelectItem" asp-for="DepartmentId" class="form-control">
+                                <option>Bon de Commande</option>
+                            </select>
+                            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-2">
+                            <label asp-for="ImageUrl" class="control-label"></label>
+                            <input asp-for="ImageUrl" class="form-control" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="col-3">
+                            <label asp-for="ImageUrl" class="control-label"></label>
+                            <input type="file" asp-for="PictureImage" class="form-control" data-mask />
+                            <span asp-validation-for="PictureImage" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-2">
+                            <input type="submit" value="ENREGISTRE" class="btn btn-primary" /> <br />
+                        </div>
+                        <div class="col-10">
+                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                <input asp-for="IsActived" type="checkbox" class="custom-control-input" id="customSwitch3">
+                                <label class="custom-control-label" for="customSwitch3">@Html.DisplayNameFor(model => model.IsActived)</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+ *@
+                <form asp-action="UpdateEmployee" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="row">
+                        @* <div class="col-6 mt-2">
+                        <p class="text-danger"> @Html.ValidationSummary()</p>
+                        </div> *@
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
+
+                    @* Info Personnel *@
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h5 class="card-title">Info Personnel </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label asp-for="FullName" class="control-label"></label>
+                                    <input asp-for="FullName" class="form-control" />
+                                    @* <span asp-validation-for="FullName" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="NNI" class="control-label"></label>
+                                    <input asp-for="NNI" class="form-control" />
+                                    @* <span asp-validation-for="NNI" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="PhoneNumber" class="control-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                    @* <span asp-validation-for="PhoneNumber" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="ImageUrl" class="control-label"></label>
+                                    <input type="file" asp-for="PictureImage" class="form-control" data-mask />
+                                    <span asp-validation-for="PictureImage" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Info Ecobank *@
+
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h5 class="card-title">Info Ecobank </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label asp-for="Designation" class="control-label"></label>
+                                    <input asp-for="Designation" class="form-control" />
+                                    @* <span asp-validation-for="Designation" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="Matricule" class="control-label"></label>
+                                    <input asp-for="Matricule" class="form-control" />
+                                    @* <span asp-validation-for="Matricule" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="AgenceId" class="control-label"></label>
+                                    <select asp-items="@ViewBag.AgenceSelectItem" asp-for="AgenceId" class="form-control">
+                                        <option>Agence</option>
+                                    </select>
+                                    @* <span asp-validation-for="AgenceId" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="DepartmentId" class="control-label"></label>
+                                    <select asp-items="@ViewBag.DepartmentSelectItem" asp-for="DepartmentId" class="form-control">
+                                        <option>Departement</option>
+                                    </select>
+                                    @* <span asp-validation-for="DepartmentId" class="text-danger"></span> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    @* Info Connexion *@
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h5 class="card-title">Info Connexion </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label asp-for="UserName" class="control-label"></label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    @*  <span asp-validation-for="UserName" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    @* <span asp-validation-for="Email" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input type="password" asp-for="Password" class="form-control" />
+                                    @* <span asp-validation-for="Password" class="text-danger"></span> *@
+                                </div>
+                                <div class="col-3">
+                                    <label asp-for="ConfirmPassword" class="control-label"></label>
+                                    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                                    @* <span asp-validation-for="ConfirmPassword" class="text-danger"></span> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                    <input asp-for="IsActived" type="checkbox" class="custom-control-input" id="customSwitch3">
+                                    <label class="custom-control-label" for="customSwitch3">@Html.DisplayNameFor(model => model.IsActived)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="d-grid gap-2 mt-3">
+                                    <input type="submit" value="Cree le Compte" class="btn btn-outline-primary" /> <br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"> <a asp-action="Index">Liste de Utilisateurs</a></div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="card-footer"> <a asp-action="Index">Back to List</a></div>
+        </div><!--./card card-default -->
+    </div><!--./container-fluid -->
+</section>
+
+
+

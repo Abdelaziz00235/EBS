@@ -1,0 +1,57 @@
+﻿@model ResultRoleDto
+@{
+    ViewData["Title"] = "DetailsRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">About</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">@ViewData["Title"]</a></li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Information General</h5>
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Nom: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.Name)" disabled>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Modiffier", "UpdateRole", new { id = Model.Id }) | <a asp-action="Index">Liste des roles disponible</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Photos</h5>
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-6 mt-6">
+                                Google Maps
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,222 @@
+﻿<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a asp-controller="Home" asp-action="Index" asp-area="Home" class="nav-link ">
+                <img src="~/admintemplate/assets/img/EcobankBusinessServices.png" style="width:130px" />
+                @*
+                <i class="bi bi-grid"></i>
+                <span>Shopping</span> *@
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <!-- Message Page Nav -->
+        <li class="nav-item">
+            <a asp-controller="Message" asp-action="Index" asp-area="Admin" class="nav-link " class="nav-link">
+                <i class="bi bi-envelope"></i>
+                <span>Message</span>
+            </a>
+        </li><!-- End Message Page Nav -->
+
+        <li class="nav-item">
+            <a asp-controller="Home" asp-action="Index" asp-area="Admin" class="nav-link">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-heading">Ecobank</li>
+
+        <!-- Ecobank Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Ecobank</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a asp-controller="Agence" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Agences</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Department" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Departement</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Ecobank Nav -->
+        <!-- Employees Nav -->
+        <li class="nav-item">
+            <a asp-controller="Employee" asp-action="Index" asp-area="Admin" class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse">
+                <i class="bi bi-person"></i>
+                <span>Employees</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a asp-controller="Employee" asp-action="CreateEmployee" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Nouveau Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Employee" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Liste des employees</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Employees Nav -->
+        <!-- Role Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Roles</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a asp-controller="Role" asp-action="CreateRole" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Nouveau Role</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Role" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Liste des roles</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Role Nav -->
+        <!-- EBS Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-bar-chart"></i><span>EBS</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a asp-controller="About" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>A propos de nous</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Brand" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Marque</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Category" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Categorie</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="SubCategorie" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Sous-categorie</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Contact" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Product" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Produits</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Order" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Commandes</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PurchaseOrder" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Bon de Commande</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="RequestPurchaseOrExecutionWork" asp-action="Index" asp-area="Admin" class="nav-link ">
+                        <i class="bi bi-grid"></i>
+                        <span>Demande Service</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End EBS Nav -->
+        <!-- End Fournisseurs Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="icons-bootstrap.html">
+                        <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons-remix.html">
+                        <i class="bi bi-circle"></i><span>Remix Icons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons-boxicons.html">
+                        <i class="bi bi-circle"></i><span>Boxicons</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- End Icons Nav -->
+
+        <li class="nav-heading">Pages</li>
+
+        <!-- Fournisseurs Page Nav -->
+        <li class="nav-item">
+            <a asp-controller="Supplier" asp-action="Index" asp-area="Admin" class="nav-link " class="nav-link">
+                <i class="bi bi-person"></i>
+                <span>Fournisseurs</span>
+            </a>
+        </li>
+        <!-- End Fournisseurs Page Nav -->
+        <!-- Rapport Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span>Rapport</span>
+            </a>
+        </li>
+        <!-- End Rapport Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-data"></i>
+                <span>Export All Data</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+        <!-- Applications   Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Applications</span>
+            </a>
+        </li><!-- End Applications Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Mon Compte</span>
+            </a>
+        </li><!-- End Error 404 Page Nav -->
+    </ul>
+
+</aside>

@@ -1,0 +1,68 @@
+﻿@model List<ResultBasketDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Basket</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<p><a asp-action="CreateBasket">Create New</a></p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>Id </th>
+                                <th>Quantites</th>
+                                <th>Employees</th>
+                                <th>Produits</th> 
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Employee.FullName</td>
+                                    <td>@item.Product.Name</td>
+                                    @if (item.IsActived == true)
+                                    {
+                                        <td class="green"> <span class="badge bg-success">Activer</span> </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                    }
+                                    <td>
+                                        <a asp-action="UpdateBasket" asp-controller="Basket" asp-area="Admin" asp-route-id="@item.Id">Edite</a>
+                                        <a asp-action="Details" asp-controller="Basket" asp-area="Admin" asp-route-id="@item.Id">Detail</a>
+                                        <a asp-action="DeleteBasket" asp-controller="Basket" asp-area="Admin" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

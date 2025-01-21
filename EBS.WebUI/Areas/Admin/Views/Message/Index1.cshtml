@@ -1,0 +1,76 @@
+﻿@* @model IEnumerable<EBS.WebUI.DTOs.MessageDtos.ResultMessageDto> *@
+@model List<ResultMessageDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="pagetitle">
+    <h1>@ViewData["Title"]</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item ">Message</li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Index</a></li>
+        </ol>
+    </nav>
+</div>
+<hr />
+
+<p><a asp-action="CreateMessage">Create New</a></p>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Datatables</h5>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subjet</th>
+                                <th>Content</th>
+                                <th>Satuts</th> 
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Subjet)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Content)</td>
+                                @if (item.IsActived == true)
+                                {
+                                    <td class="green"><span class="badge bg-success">Activer</span></td>
+                                }
+                                else
+                                {
+                                    <td class="green"><span class="badge bg-danger">Non activer</span></td>
+                                }
+                                <td>
+                                    <a asp-action="UpdateAbout" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id">Edite</a>
+                                    <a asp-action="Details" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id">Detail</a>
+                                    <a asp-action="DeleteAbout" asp-controller="About" asp-area="Admin" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*  
+<td>
+    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+</td> *@

@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "ProductSingle";
+    Layout = "~/Views/UILayout/ProductSingleLayout.cshtml";
+}
+
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section> 
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Produits</li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Details</li>
+        </ul>
+    </div>
+</section>
+<!--/blog-post-->
+<section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span>Buy</span><span>Rent</span></div>
+                </li>
+                <li><span class="fa fa-clock-o"></span> @ViewBag.DateCreated</li>
+                <li><span class="fa fa-eye"></span> 250 views</li>
+            </ul>
+        </div>
+        <div class="post-content">
+            <h2 class="title-single">@ViewBag.ProductTitle</h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <p>@ViewBag.ProductShortDescription</p>
+                </li>
+                <li><span class="fa fa-bed"></span> 3 Beds</li>
+                <li><span class="fa fa-bath"></span> 4 Baths</li>
+                <li><span class="fa fa-share-square-o"></span> 1258 sqrft</li>
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">$25,0045</a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+                    <div class="single-post-image mb-5">
+                        <div class="owl-blog owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/shoptemplate/assets/images/@ViewBag.Image" style="height:400px" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/shoptemplate/assets/images/@ViewBag.Image1" style="height:400px" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/shoptemplate/assets/images/@ViewBag.Image2" style="height:400px" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/shoptemplate/assets/images/@ViewBag.Image3" style="height:400px" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/shoptemplate/assets/images/@ViewBag.Image4" style="height:400px" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="single-post-content">
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Description</h3>
+                            <p class="mb-4">
+                                @ViewBag.ProductTitle
+                            </p>
+                        </div>
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Longue description</h3>
+                            <p class="mb-4">
+                                @ViewBag.ProductLongDescription
+                            </p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
+                <aside class="sidebar">
+
+                    <!-- Popular Post Widget-->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Panier</h4>
+                        </div>
+                        <article class="post">
+                            @* <div class="text mb-0"></div> *@
+                        </article>
+                        <button type="submit" class="btn btn-primary btn-style w-100">Ajouter au Panier</button>
+                    </div> 
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
